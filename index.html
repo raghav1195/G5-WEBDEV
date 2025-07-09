@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation Example</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="grandparent">
+    Grandparent
+    <div id="parent">
+      Parent
+      <div id="child">
+        Child
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const grandparent = document.getElementById('grandparent');
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+
+    grandparent.addEventListener('click', function (e) {
+      console.log('grandparent');
+      e.stopPropagation();
+    });
+
+    parent.addEventListener('click', function (e) {
+      console.log('parent');
+      e.stopPropagation();
+    });
+
+    child.addEventListener('click', function (e) {
+      console.log('child');
+      e.stopPropagation();
+    });
+  </script>
+
+</body>
+</html>
